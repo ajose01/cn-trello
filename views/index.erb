@@ -1,0 +1,7 @@
+<h1>Welcome to the Trello Newsletter App</h1>
+<%= flash[:notice] if flash[:notice] %>
+<p>Process newsletter</p>
+
+<form method="post" action="/process" class="button_to">
+  <div><input value="Process" type="submit" /></div>
+</form>

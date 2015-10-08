@@ -1,3 +1,29 @@
+require 'sinatra/flash'
+enable :sessions
+
+use Rack::Auth::Basic, "Must login first" do |username, password|
+  username == 'admin' and password == 'admin'
+end
+
+before do
+  headers "Content-Type" => "text/html; charset=utf-8"
+end
+
 get '/' do
-  "Sinatra Heroku Cedar Template - The bare minimum for a sinatra app on cedar, running rack, and using bundler."
+  erb :index
+end
+
+post '/process' do
+  if TrelloNewsletter.new.run
+     flash[:notice] = "Trello Processed" 
+     redirect('/')
+  else
+     flash[:notice] = "Trello failed"
+     redirect('/')
+  end 
+end
+
+post '/test' do
+  flash[:notice] = "test worked"
+  redirect('/')
 end
