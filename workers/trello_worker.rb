@@ -2,11 +2,11 @@ require 'sidekiq'
 require 'trello_newsletter'
 
 Sidekiq.configure_client do |config|
-  config.redis = { :namespace => 'CN', :size => 1 }
+  config.redis = { :url => ENV['REDIS_PROVIDER'], :namespace => 'CN', :size => 1 }
 end
 
 Sidekiq.configure_server do |config|
-  config.redis = { :namespace => 'CN' }
+  config.redis = { :url => ENV['REDIS_PROVIDER'], :namespace => 'CN' }
 end
 
 class TrelloWorker
