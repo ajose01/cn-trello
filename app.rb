@@ -1,8 +1,10 @@
 require 'sinatra/flash'
+require './workers/trello_worker.rb'
+
 enable :sessions
 
 use Rack::Auth::Basic, "Must login first" do |username, password|
-  username == 'admin' and password == 'admin'
+  username == ENV['CN_LOGIN'] and password == ENV['CN_PASS'] 
 end
 
 before do
@@ -14,16 +16,11 @@ get '/' do
 end
 
 post '/process' do
-  if TrelloNewsletter.new.run
-     flash[:notice] = "Trello Processed" 
+  if TrelloWorker.perform_async("job_sent") 
+     flash[:notice] = "Trello process queued" 
      redirect('/')
   else
      flash[:notice] = "Trello failed"
      redirect('/')
   end 
-end
-
-post '/test' do
-  flash[:notice] = "test worked"
-  redirect('/')
 end
