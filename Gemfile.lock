@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/code-newbies/trello_newsletter.git
-  revision: c55728b21d1836582fbe637edec6755936168a1a
+PATH
+  remote: ~/Apps/trello_newsletter
   specs:
     trello_newsletter (0.1.2)
       gibbon (~> 1.1)
@@ -22,25 +21,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     builder (3.2.2)
-    celluloid (0.17.2)
-      celluloid-essentials
-      celluloid-extras
-      celluloid-fsm
-      celluloid-pool
-      celluloid-supervision
-      timers (>= 4.1.1)
-    celluloid-essentials (0.20.5)
-      timers (>= 4.1.1)
-    celluloid-extras (0.20.5)
-      timers (>= 4.1.1)
-    celluloid-fsm (0.20.5)
-      timers (>= 4.1.1)
-    celluloid-pool (0.20.5)
-      timers (>= 4.1.1)
-    celluloid-supervision (0.20.5)
-      timers (>= 4.1.1)
     coderay (1.1.0)
-    connection_pool (2.2.0)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     excon (0.45.4)
@@ -60,7 +41,6 @@ GEM
     heroku-api (0.3.23)
       excon (~> 0.44)
       multi_json (~> 1.8)
-    hitimes (1.2.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     httparty (0.13.7)
@@ -88,9 +68,6 @@ GEM
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
-    redis (3.2.1)
-    redis-namespace (1.5.2)
-      redis (~> 3.0, >= 3.0.4)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -102,12 +79,6 @@ GEM
       oauth (~> 0.4.5)
       rest-client (~> 1.8.0)
     rubyzip (1.1.7)
-    sidekiq (3.5.0)
-      celluloid (~> 0.17.0)
-      connection_pool (~> 2.2, >= 2.2.0)
-      json (~> 1.0)
-      redis (~> 3.2, >= 3.2.1)
-      redis-namespace (~> 1.5, >= 1.5.2)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -118,8 +89,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
-    timers (4.1.1)
-      hitimes
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unf (0.1.4)
@@ -133,7 +102,6 @@ DEPENDENCIES
   foreman
   heroku
   pry
-  sidekiq
   sinatra
   sinatra-flash
   trello_newsletter!
