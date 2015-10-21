@@ -1,6 +1,8 @@
 require 'sinatra/flash'
+require 'sinatra/config_file'
 
 enable :sessions
+config_file '.config.yml' 
 
 use Rack::Auth::Basic, "Must login first" do |username, password|
   username == ENV['CN_LOGIN'] and password == ENV['CN_PASS'] 
